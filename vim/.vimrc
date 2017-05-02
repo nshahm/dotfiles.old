@@ -121,6 +121,8 @@ set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
+set autowrite
+
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
@@ -145,14 +147,17 @@ set nowrap
 set textwidth=0
 
 syntax enable
+
 set background=dark
 set t_Co=256
+
+let mapleader = ","
+
 "let g:molokai_original = 1
 "colorscheme molokai
 
-" let g:airline_theme = 'luna'
-"let g:airline_theme = 'molokai'
-let g:airline_theme = 'cobalt2'
+"let g:airline_theme = 'luna'
+"let g:airline_theme = 'cobalt2'
 
 "airline
 let g:airline#extensions#tabline#enabled = 1
@@ -162,4 +167,55 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 set relativenumber
 set number
 
+"diable arrow
+" Get off my lawn - helpful when learning Vim :)
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+"Shortcuts
 nmap <F8> :TagbarToggle<CR>
+nmap <F7> :NERDTreeToggle<CR>
+"nmap <C->> :bn<CR>
+"nmap <C-<> :bp<CR>
+
+"golang
+let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
+let g:go_snippet_case_type = "camelcase"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_generate_tags = 1
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_deadline = "5s"
+let g:go_def_mode = 'godef'
+let g:go_decls_includes = "func,type"
+let g:go_auto_type_info = 1
+
+set updatetime=100
+
+"By default Vim shows 8 spaces for a single tab. However it's up to us how to represent in Vim. 
+"The following will change it to show a single tab as 4 spaces:
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#cmd#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+"autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader>i <Plug>(go-info)

@@ -32,7 +32,7 @@ echo "dotfiles directory: " $DOTFILES_DIR
 
 # go code completion using youcompleteme
 # install CMake and execute below command
-#cd vim/bundle/youcompleteme, hit ENTER
+# cd vim/bundle/youcompleteme, hit ENTER
 #./install.py --gocode-completer
 
 # Fetch vundle a vim plugin manager
@@ -68,3 +68,5 @@ ln -sfv $DOTFILES_DIR/tmux/.tmux.conf ~
 echo "Install VIM plugins"
 vim +PluginInstall +qall
 
+echo "vim/bundle/youcompleteme/install.py --gocode-completer"
+~/.vim/bundle/youcompleteme/install.py --gocode-completer
