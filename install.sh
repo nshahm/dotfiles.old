@@ -1,5 +1,16 @@
 #!/bin/bash
 
+
+# Perform OS based install
+if [ "$(uname)" == "Darwin" ]; then
+    echo -e "\n\nRunning on OSX"
+    ./setup/install-osx.sh
+elif [  -n "$(uname -a | grep Ubuntu)" ]; then
+    echo -d "\n\n Running on Ubuntu"
+    ./setup/install-ubuntu.sh
+fi
+
+
 READLINK=$(which greadlink || which readlink)
 CURRENT_SCRIPT=$BASH_SOURCE
 
@@ -32,6 +43,14 @@ else
     echo "Vundle already installed"
 fi
 
+# Fetch tmux plugin manager
+if [ ! -e ~/.vim/bundle/Vundle.vim ]; then
+    echo "Install Tmux plugin manager"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else 
+    echo "Tmux plugin manager already installed"
+fi
+
 # load system
 for DOTFILE in "$DOTFILES_DIR"/system.{alias,env,function,path,prompt}; 
 do
@@ -49,8 +68,3 @@ ln -sfv $DOTFILES_DIR/tmux/.tmux.conf ~
 echo "Install VIM plugins"
 vim +PluginInstall +qall
 
-# only perform macOS-specific install
-if [ "$(uname)" == "Darwin" ]; then
-    echo -e "\n\nRunning on OSX"
-    ./install-osx.sh
-fi
