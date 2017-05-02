@@ -21,7 +21,7 @@ echo "dotfiles directory: " $DOTFILES_DIR
 
 # go code completion using youcompleteme
 # install CMake and execute below command
-#cd vim/bundle/youcompleteme, hit ENTER
+# cd vim/bundle/youcompleteme, hit ENTER
 #./install.py --gocode-completer
 
 # Fetch vundle a vim plugin manager
@@ -54,3 +54,6 @@ if [ "$(uname)" == "Darwin" ]; then
     echo -e "\n\nRunning on OSX"
     ./install-osx.sh
 fi
+
+echo "vim/bundle/youcompleteme/install.py --gocode-completer"
+~/.vim/bundle/youcompleteme/install.py --gocode-completer

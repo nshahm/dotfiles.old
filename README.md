@@ -1,6 +1,12 @@
 # dotfiles
 vim, zsh and other dotfiles
 
+# Installation
+
+```
+git clone https://github.com/nshahm/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && chmod +x install.sh && ./install.sh
+```
+
 ## vim shortcuts
 
 ```
@@ -107,4 +113,21 @@ Change caps lock to control
 :bw            # Close file.
 ```
 
+#Golang editor shortcuts
+```
+leader key - '
+<leader>b - go build
+<leader>c - go coverage
+<leader>i - go info
+
+F7 - Toggle NERD Tree
+F8 - Toggle Tagbar
+
+]]           - Jump to next function
+[[           - Jump to previous function
+
+ctrl-] or gd - Jump to definition
+ctrl-t       - Jump back to previous location
+
+```
 Ref: github.com/nicknisi/dotfiles
