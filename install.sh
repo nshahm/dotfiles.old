@@ -1,15 +1,13 @@
 #!/bin/bash
 
-
 # Perform OS based install
 if [ "$(uname)" == "Darwin" ]; then
     echo -e "\n\nRunning on OSX"
-    ./setup/install-osx.sh
+    # sh ./setup/osx.sh
 elif [  -n "$(uname -a | grep Ubuntu)" ]; then
     echo -d "\n\n Running on Ubuntu"
-    ./setup/install-ubuntu.sh
+    sudo ./setup/ubuntu.sh
 fi
-
 
 READLINK=$(which greadlink || which readlink)
 CURRENT_SCRIPT=$BASH_SOURCE
@@ -52,21 +50,31 @@ else
 fi
 
 # load system
-for DOTFILE in "$DOTFILES_DIR"/system.{alias,env,function,path,prompt}; 
+for DOTFILE in "$DOTFILES_DIR"/system/.{alias,env,function,path,prompt}; 
 do
+     echo $DOTFILE
      [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
 #sym link
 echo "Creating symlink for .vimrc"
-ln -sfv $DOTFILES_DIR/vim/.vimrc ~
+ln -sfv $DOTFILES_DIR/.vimrc ~
 
 echo "Creating symlink for .tmux.conf"
 ln -sfv $DOTFILES_DIR/tmux/.tmux.conf ~
+
+echo "Creating symlink for .tmux.conf"
+ln -sfv $DOTFILES_DIR/.zshrc ~
+
+echo "Creating symlink for .tmux.conf"
+ln -sfv $DOTFILES_DIR/.bash_profile ~
 
 # Install all the plugins
 echo "Install VIM plugins"
 vim +PluginInstall +qall
 
+# install antigen
+curl -L git.io/antigen > ~/.antigen/antigen.zsh
+
 echo "vim/bundle/youcompleteme/install.py --gocode-completer"
-~/.vim/bundle/youcompleteme/install.py --gocode-completer
+# ~/.vim/bundle/youcompleteme/install.py --gocode-completer
