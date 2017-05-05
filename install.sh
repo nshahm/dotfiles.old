@@ -3,7 +3,7 @@
 # Perform OS based install
 if [ "$(uname)" == "Darwin" ]; then
     echo -e "\n\nRunning on OSX"
-    # sh ./setup/osx.sh
+    sh ./setup/osx.sh
 elif [  -n "$(uname -a | grep Ubuntu)" ]; then
     echo -d "\n\n Running on Ubuntu"
     sudo ./setup/ubuntu.sh
