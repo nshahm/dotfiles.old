@@ -22,7 +22,7 @@ formulas=(
     go
     openssl
     curl
-    antigen
+    # antigen
     # delve
 )
 for formula in "${formulas[@]}"; do
