@@ -74,8 +74,15 @@ done
 echo "Install VIM plugins"
 vim +PluginInstall +qall
 
-# install antigen
+# Install tmux plugin manager
+if [ ! -e ~/.tmux/plugins/tpm ]; then
+    echo "Install tmux plugin manager."
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else 
+    echo "tmux plugin manager already installed"
+fi
+
 curl -L git.io/antigen > ~/.antigen/antigen.zsh
 
-echo "vim/bundle/youcompleteme/install.py --gocode-completer"
-# ~/.vim/bundle/youcompleteme/install.py --gocode-completer
+echo "vim/bundle/youcompleteme/install.py --gocode-completer --tern-completer"
+~/.vim/bundle/youcompleteme/install.py --gocode-completer --tern-completer
