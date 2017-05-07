@@ -100,7 +100,47 @@ Ex: nmap <leader>z : call VimuxRunCommand("grunt test")<cr>
 unbind C-a
 set -g prefix C-a
 bind C-a send-prefix
-Change caps lock to control
+Change caps lock to control for ease
+```
+
+> Press prefix + I (capital I, as in Install) to fetch the plugin
+
+**vim tmux navigator**
+```
+<ctrl-h> => Left
+<ctrl-j> => Down
+<ctrl-k> => Up
+<ctrl-l> => Right
+<ctrl-\> => Previous split
+```
+**split screen**
+```
+prefix + shift | -> split horizontal
+prefix + shift - -> split vertical
+```
+
+**Rename**
+```
+prefix + shift $ -> rename session
+prefix + ,       -> rename window
+```
+
+**Resizing panes**
+```
+prefix + shift + h
+resize current pane 5 cells to the left
+prefix + shift + j
+resize 5 cells in the up direction
+prefix + shift + k
+resize 5 cells in the down direction
+prefix + shift + l
+resize 5 cells to the right
+```
+
+**resurrect**
+```
+prefix + Ctrl-s - save
+prefix + Ctrl-r - restore
 ```
 
 ### shortcuts
@@ -131,3 +171,6 @@ ctrl-t       - Jump back to previous location
 
 ```
 Ref: github.com/nicknisi/dotfiles
+
+
+## TMUX plugin 

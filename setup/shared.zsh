@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Install bundles via antigen (ZSH plugin manager)
-curl -L git.io/antigen > antigen.zsh
+curl -L git.io/antigen > ~/.antigen/antigen.zsh
 source ~/.zshrc
 
 # framework
