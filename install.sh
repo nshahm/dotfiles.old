@@ -82,7 +82,19 @@ else
     echo "tmux plugin manager already installed"
 fi
 
-curl -L git.io/antigen > ~/.antigen/antigen.zsh
+if [ ! -e ~/.antigen ]; then
+    echo "Creating directory ~/.antigen"
+    mkdir -p ~/.antigen
+else 
+    echo "~./antigen already exists... Skipping."
+fi
+
+if [ ! -f ~/.antigen/antigen.zsh ]; then
+    echo "Downloading antigen.zsh"
+    curl -L git.io/antigen > ~/.antigen/antigen.zsh
+else 
+    echo "~/.antigen/antigen.zsh already exists... Skipping."
+fi
 
 echo "vim/bundle/youcompleteme/install.py --gocode-completer --tern-completer"
 ~/.vim/bundle/youcompleteme/install.py --gocode-completer --tern-completer
