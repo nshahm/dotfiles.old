@@ -6,6 +6,8 @@ vim, zsh and other dotfiles
 ```
 git clone https://github.com/nshahm/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && chmod +x install.sh && ./install.sh
 ```
+## vim cheatsheets
+<a link="http://www.worldtimzone.com/res/vi.html" target="_blank">http://www.worldtimzone.com/res/vi.html</a>
 
 ## vim shortcuts
 
@@ -119,13 +121,21 @@ prefix + shift | -> split horizontal
 prefix + shift - -> split vertical
 ```
 
-**Rename**
+**Windows**
 ```
-prefix + shift $ -> rename session
-prefix + ,       -> rename window
+C-a 1 ...      switch to window 1, ..., 9, 0
+C-a 9
+C-a 0
+C-a p          previous window
+C-a n          next window
+C-a l          ‘last’ (previously used) window
+C-a w          choose window from a list
+
+prefix + shift $ => rename session
+prefix + ,       => rename window
 ```
 
-**Resizing panes**
+**Resizing tmux panes**
 ```
 prefix + shift + h
 resize current pane 5 cells to the left
@@ -144,6 +154,11 @@ prefix + Ctrl-r - restore
 ```
 
 ### shortcuts
+
+```
+TAB         -> Go to next buffer
+Shift + TAB -> Go to prev buffer
+```
 
 ```
 :bf            # Go to first file.
