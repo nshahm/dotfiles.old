@@ -63,7 +63,9 @@ linkables=$( find -H "$DOTFILES_DIR" -maxdepth 3 -name '*.symlink' )
 for file in $linkables ; do
     target="$HOME/.$( basename $file '.symlink' )"
     if [ -e $target ]; then
-        echo "~${target#$HOME} already exists... Skipping."
+        echo "~${target#$HOME} already exists... recreating it to ensure it points to " $file
+        rm -f $target
+        ln -s $file $target
     else
         echo "Creating symlink for $file"
         ln -s $file $target

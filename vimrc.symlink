@@ -177,8 +177,9 @@ nnoremap <Down> :echoe "Use j"<CR>
 "Shortcuts
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
-"nmap <C->> :bn<CR>
-"nmap <C-<> :bp<CR>
+
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprev<CR>
 
 "golang
 let g:go_list_type = "quickfix"
