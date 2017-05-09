@@ -84,18 +84,12 @@ else
     echo "tmux plugin manager already installed"
 fi
 
-if [ ! -e ~/.antigen ]; then
-    echo "Creating directory ~/.antigen"
-    mkdir -p ~/.antigen
+if [ ! -e ~/.zplug ]; then
+    echo "Installing zplug"
+    export ZPLUG_HOME=~/.zplug
+    git clone https://github.com/zplug/zplug $ZPLUG_HOME
 else 
-    echo "~./antigen already exists... Skipping."
-fi
-
-if [ ! -f ~/.antigen/antigen.zsh ]; then
-    echo "Downloading antigen.zsh"
-    curl -L git.io/antigen > ~/.antigen/antigen.zsh
-else 
-    echo "~/.antigen/antigen.zsh already exists... Skipping."
+    echo "~/.zplug already exists... Skipping."
 fi
 
 echo "vim/bundle/youcompleteme/install.py --gocode-completer --tern-completer"

@@ -18,7 +18,6 @@ packages=(
     go
     openssl
     curl
-    antigen
     # delve
 )
 
