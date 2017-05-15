@@ -1,4 +1,4 @@
-#!/bin/bash
+
 
 # Perform OS based install
 if [ "$(uname)" == "Darwin" ]; then
@@ -91,6 +91,17 @@ if [ ! -e ~/.zplug ]; then
 else 
     echo "~/.zplug already exists... Skipping."
 fi
+
+# Install node via nvm
+echo -d "\n\n Installing nvm"
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Install required node plugins
+echo -d "\n\n Installing node global packages"
+sudo sh ./packages/node.sh
 
 echo "vim/bundle/youcompleteme/install.py --gocode-completer --tern-completer"
 ~/.vim/bundle/youcompleteme/install.py --gocode-completer --tern-completer
