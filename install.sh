@@ -2,11 +2,11 @@
 
 # Perform OS based install
 if [ "$(uname)" == "Darwin" ]; then
-    echo -e "\n\nRunning on OSX"
-    sh ./setup/osx.sh
+  echo -e "\n\nRunning on OSX"
+  sh ./setup/osx.sh
 elif [  -n "$(uname -a | grep Ubuntu)" ]; then
-    echo -d "\n\n Running on Ubuntu"
-    sudo ./setup/ubuntu.sh
+  echo -d "\n\n Running on Ubuntu"
+  sudo ./setup/ubuntu.sh
 fi
 
 READLINK=$(which greadlink || which readlink)
@@ -23,37 +23,24 @@ else
 fi
 
 if [ $DOTFILES_DIR == "." ]; then
-    DOTFILES_DIR=$(PWD)
+  DOTFILES_DIR=$(PWD)
 fi
 
 echo "dotfiles directory: " $DOTFILES_DIR
 
-# go code completion using youcompleteme
-# install CMake and execute below command
-# cd vim/bundle/youcompleteme, hit ENTER
-#./install.py --gocode-completer
-
-# Fetch vundle a vim plugin manager
-if [ ! -e ~/.vim/bundle/Vundle.vim ]; then
-    echo "Install vundle.vim"
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-else 
-    echo "Vundle already installed"
-fi
-
 # Fetch tmux plugin manager
 if [ ! -e ~/.vim/bundle/Vundle.vim ]; then
-    echo "Install Tmux plugin manager"
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-else 
-    echo "Tmux plugin manager already installed"
+  echo "Install Tmux plugin manager"
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+  echo "Tmux plugin manager already installed"
 fi
 
 # load system
-for DOTFILE in "$DOTFILES_DIR"/system/.{alias,env,function,path,prompt}; 
+for DOTFILE in "$DOTFILES_DIR"/system/.{alias,env,function,path,prompt};
 do
-     echo $DOTFILE
-     [ -f "$DOTFILE" ] && . "$DOTFILE"
+  echo $DOTFILE
+  [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
 #sym link
@@ -61,47 +48,62 @@ echo -e "\nCreating symlinks"
 echo "=============================="
 linkables=$( find -H "$DOTFILES_DIR" -maxdepth 3 -name '*.symlink' )
 for file in $linkables ; do
-    target="$HOME/.$( basename $file '.symlink' )"
-    if [ -e $target ]; then
-        echo "~${target#$HOME} already exists... recreating it to ensure it points to " $file
-        rm -f $target
-        ln -s $file $target
-    else
-        echo "Creating symlink for $file"
-        ln -s $file $target
-    fi
+  target="$HOME/.$( basename $file '.symlink' )"
+  if [ -e $target ]; then
+    echo "~${target#$HOME} already exists... recreating it to ensure it points to " $file
+    rm -f $target
+    ln -s $file $target
+  else
+    echo "Creating symlink for $file"
+    ln -s $file $target
+  fi
 done
-
-# Install all the plugins
-echo "Install VIM plugins"
-vim +PluginInstall +qall
-
-# Install tmux plugin manager
-if [ ! -e ~/.tmux/plugins/tpm ]; then
-    echo "Install tmux plugin manager."
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-else 
-    echo "tmux plugin manager already installed"
-fi
-
-if [ ! -e ~/.zplug ]; then
-    echo "Installing zplug"
-    export ZPLUG_HOME=~/.zplug
-    git clone https://github.com/zplug/zplug $ZPLUG_HOME
-else 
-    echo "~/.zplug already exists... Skipping."
-fi
 
 # Install node via nvm
 echo -d "\n\n Installing nvm"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 
+# This loads nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # Install required node plugins
 echo -d "\n\n Installing node global packages"
 sudo sh ./packages/node.sh
 
+
+# Install neovim plugins
+echo "Installing dein (Plugin Manager for neovim)"
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > downloaded_installer.sh
+sh ./downloaded_installer.sh ~/.vim
+
+# Install all the plugins
+echo "Install NEOVIM plugins"
+vim +NeoBundleInstall +qall +UpdateRemotePlugins
+
+# Creating symbolic link for nvmrc
+mkdir -p ~/.config/nvim/
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+ln -s ~/.vim ~/.nvim
+
+# Install tmux plugin manager
+if [ ! -e ~/.tmux/plugins/tpm ]; then
+  echo "Install tmux plugin manager."
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+  echo "tmux plugin manager already installed"
+fi
+
+if [ ! -e ~/.zplug ]; then
+  echo "Installing zplug"
+  export ZPLUG_HOME=~/.zplug
+  git clone https://github.com/zplug/zplug $ZPLUG_HOME
+else
+  echo "~/.zplug already exists... Skipping."
+fi
+
+#Adding Fonts to nvim devicons
+cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20for%20Powerline%20Nerd%20Font%20Complete.otf
+
 echo "vim/bundle/youcompleteme/install.py --gocode-completer --tern-completer"
-~/.vim/bundle/youcompleteme/install.py --gocode-completer --tern-completer
+#~/.vim/bundle/youcompleteme/install.py --gocode-completer --tern-completer

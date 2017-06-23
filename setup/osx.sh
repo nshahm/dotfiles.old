@@ -11,7 +11,8 @@ echo "=============================="
 #Install brew dependencies
 formulas=(
     # flags should pass through the the `brew list check`
-    'vim --with-lua'
+    #'vim --with-lua'
+    neovim/neovim/neovim
     git
     cask
     reattach-to-user-namespace
@@ -22,6 +23,7 @@ formulas=(
     go
     openssl
     curl
+    python3
     # delve
 )
 for formula in "${formulas[@]}"; do
@@ -47,3 +49,6 @@ done
 brew update
 brew upgrade
 brew cleanup
+
+pip install neovim
+pip3 install neovim

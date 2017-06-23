@@ -8,7 +8,8 @@ sudo apt-get update
 
 packages=(
     # flags should pass through the the `brew list check`
-    'vim --with-lua'
+"    'vim --with-lua'
+    neovim
     git
     # reattach-to-user-namespace
     tmux

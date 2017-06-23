@@ -1,2 +1,5 @@
 bin
+dein
 npm-debug.log
+dein_*
+downloaded*
