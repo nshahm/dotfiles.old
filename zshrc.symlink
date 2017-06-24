@@ -53,7 +53,7 @@ zplug plugins/tmux, from:oh-my-zsh, ignore:oh-my-zsh.sh
 zplug plugins/tmuxinator, from:oh-my-zsh, ignore:oh-my-zsh.sh
 
 #zplug denysdovhan/spaceship-zsh-theme, use:spaceship.zsh, from:github, as:theme
-zplug eendroroy/alien
+zplug eendroroy/alien, from:github
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then

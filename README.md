@@ -39,6 +39,34 @@ f - find forward
 F - find backward
 ```
 
+### Fold & unfold
+```
+<leader>zi - switch folding on or off
+<leader>za - toggle current fold open/closed
+<leader>zc - close current fold
+<leader>zR - open all folds
+<leader>zM - close all folds
+<leader>zv - expand folds to reveal cursor
+```
+
+### Comment & Uncomment
+```
+<leader>ci - toggle comment
+<leader>cs - custom comment
+<leader>cu - Uncomments the selected line
+```
+
+### Find and Replace
+```
+<leader>vv  - Grep for the word under the cursor, match all occurences, like |gstar|
+<leader>vV  - Grep for the word under the cursor, match whole word, like |star|
+<leader>va  - Like vv, but add to existing list
+<leader>vA  - Like vV, but add to existing list
+<leader>vr  - Perform a global search on the word under the cursor and prompt for a pattern with which to replace it.
+<leader>vo  - Select the files to search in and set grep options
+<leader>vy* - Invoke any option from the options explorer, where * is the shortcut for that option.
+```
+
 ### Commands
 ```
 d - delete (also cut)
@@ -58,7 +86,7 @@ va" - visually select all inside double quotes
 ciw - then press esc, then it enables the repeat mode, then press . repeat the word.
 
 dd / yy - delete / yank the current line
-D  / C  - delete / change until end or line 
+D  / C  - delete / change until end or line
 ^  / $  - Move to the beginning / end of line
 I  / A  - Move to the beginning / end of line and insert
 o  / O  - Insert new line above / below the current line  and insert
@@ -130,8 +158,6 @@ C-a p          previous window
 C-a n          next window
 C-a l          ‘last’ (previously used) window
 C-a w          choose window from a list
-
-prefix + shift $ => rename session
 prefix + ,       => rename window
 ```
 
@@ -188,4 +214,4 @@ ctrl-t       - Jump back to previous location
 Ref: github.com/nicknisi/dotfiles
 
 
-## TMUX plugin 
+## TMUX plugin
