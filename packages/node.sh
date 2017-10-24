@@ -4,20 +4,20 @@ export NVM_DIR="$HOME/.nvm"
 # Install nodejs
 echo "Installing nodejs"
 echo "=================="
-nvm install 6.10.3
+nvm install 8.4.0
 
 #Install brew dependencies
 packages=(
-   typescript
-   yarn
-   tslint
-   typescript-formatter
-   js-beautify
-   remark
-   stylefmt
-   tern
+typescript
+yarn
+tslint
+typescript-formatter
+js-beautify
+remark
+stylefmt
+tern
 )
 
 for package in "${packages[@]}"; do
-    $(which npm) install --global $package
+  $(which npm) install --global $package
 done
