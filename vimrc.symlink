@@ -45,6 +45,7 @@ call dein#add('tpope/vim-repeat')
 call dein#add('editorconfig/editorconfig-vim')
 call dein#add('scrooloose/nerdtree')
 "call dein#add('AndrewRadev/switch.vim')
+call dein#add('AndrewRadev/splitjoin.vim')
 "   call dein#add('christoomey/vim-tmux-navigator')
 call dein#add('tmux-plugins/vim-tmux')
 call dein#add('tmux-plugins/vim-tmux-focus-events')
@@ -216,7 +217,10 @@ let g:OceanicNext_italic = 1
 vnoremap <C-S> <C-C>:update<CR>
 inoremap <C-S> <C-O>:update<CR><CR>
 " vmap <C-s> <esc>:w<CR>gv
-
+:nnoremap <C-X> <Esc>:bwipeout<CR>
+:nnoremap <C-S-X> <Esc>:bwipeout! <CR>
+:nnoremap <C-Q> <Esc>:q<CR>
+:nnoremap <C-S-Q> <Esc>:q!<CR>
 
 let g:python_host_prog = '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/bin/python3'
@@ -551,24 +555,6 @@ nnoremap <S-Tab> :bprev<CR>
 "Move lines up and down
 let g:move_key_modifier = 'C'
 
-"golang
-let g:go_list_type = "quickfix"
-let g:go_fmt_command = "goimports"
-let g:go_snippet_case_type = "camelcase"
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_generate_tags = 1
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-let g:go_metalinter_deadline = "5s"
-let g:go_def_mode = 'godef'
-let g:go_decls_includes = "func,type"
-let g:go_auto_type_info = 1
-
 "NERDTree
 let g:NERDTreeWinSize=45
 set updatetime=100
@@ -576,7 +562,7 @@ set updatetime=100
 
 " Git -----------------------------------------------------------------------(
 
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 
 " )
 
@@ -689,11 +675,45 @@ function! s:build_go_files()
   endif
 endfunction
 
+"golang
+let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
+"let g:go_fmt_fail_silently = 1
+"let g:go_snippet_case_type = "camelcase"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_deadline = "5s"
+let g:go_def_mode = 'godef'
+"let g:go_decls_includes = "func,type"
+let g:go_decls_includes = "func"
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
+let g:go_textobj_include_function_doc = 1
+set updatetime=100
+
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 "autocmd FileType go nmap <leader>b <Plug>(go-build)
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
 
 set clipboard=unnamed
 

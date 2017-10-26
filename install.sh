@@ -85,9 +85,11 @@ vim +NeoBundleInstall +qall +UpdateRemotePlugins
 mkdir -p ~/.config/nvim/
 
 if [ -e "~/.vimrc" ]; then
-  rm -f ~/.vimrc
-  ln -s ~/.vimrc ~/.config/nvim/init.vim
+  rm -f ~/.vimrc  
+  rm -f ~/.nvimrc
 fi
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+ln -s ~/.vimrc ~/.nvimrc
 
 if [ -e "~/.vim" ]; then
   rm -f ~/.vim
