@@ -24,6 +24,9 @@ go
 openssl
 curl
 python3
+ack
+ctags
+gotags
 # delve
 )
 for formula in "${formulas[@]}"; do
@@ -37,6 +40,7 @@ done
 # Install cask dependencies
 cask_formulas=(
 iterm2
+caskroom/fonts/font-hack-nerd-font
 )
 for formula in "${cask_formulas[@]}"; do
   if brew list "$formula" > /dev/null 2>&1; then

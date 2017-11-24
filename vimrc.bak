@@ -1,0 +1,762 @@
+set nocompatible
+
+" Required:
+set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim/
+
+" Required:
+call dein#begin(expand('~/.vim'))
+let pluginsExist = 0
+" Let NeoBundle manage NeoBundle
+
+" Required:
+call dein#add('Shougo/dein.vim')
+call dein#add('haya14busa/dein-command.vim')
+" syntax
+call dein#add('othree/yajs.vim', {'on_ft': 'javascript'})
+call dein#add('othree/jsdoc-syntax.vim', {'on_ft':['javascript', 'typescript']})
+call dein#add('othree/es.next.syntax.vim', {'on_ft': 'javascript'})
+call dein#add('1995eaton/vim-better-javascript-completion', {'on_ft': ['javascript']})
+call dein#add('othree/javascript-libraries-syntax.vim')
+call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
+
+call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
+call dein#add('elzr/vim-json', {'on_ft': 'json'})
+call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
+"call dein#add('dhruvasagar/vim-table-mode')
+call dein#add('suan/vim-instant-markdown', {'on_ft': 'markdown'})
+"call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python3'})
+call dein#add('HerringtonDarkholme/yats.vim')
+" call dein#add('Quramy/tsuquyomi')
+call dein#add('pangloss/vim-javascript')
+"call dein#add('mxw/vim-jsx')
+"call dein#add('heavenshell/vim-flood')
+call dein#add('mhartington/oceanic-next')
+call dein#add('NLKNguyen/papercolor-theme')
+call dein#add('Yggdroot/indentLine')
+call dein#add('Raimondi/delimitMate', {'on_ft': ['javascript', 'typescript', 'css', 'scss']})
+call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
+
+call dein#add('tpope/vim-fugitive')
+"call dein#add('jreybert/vimagit')
+call dein#add('mhinz/vim-signify')
+call dein#add('Xuyuanp/nerdtree-git-plugin')
+"call dein#add('https://github.com/jaxbot/github-issues.vim')
+
+call dein#add('tpope/vim-repeat')
+" call dein#add('scrooloose/syntastic')
+call dein#add('editorconfig/editorconfig-vim')
+call dein#add('scrooloose/nerdtree')
+"call dein#add('AndrewRadev/switch.vim')
+call dein#add('AndrewRadev/splitjoin.vim')
+"   call dein#add('christoomey/vim-tmux-navigator')
+call dein#add('tmux-plugins/vim-tmux')
+call dein#add('tmux-plugins/vim-tmux-focus-events')
+call dein#add('vim-airline/vim-airline')
+call dein#add('tpope/vim-surround')
+"   call dein#add('tomtom/tcomment_vim')
+call dein#add('mattn/emmet-vim', {'on_ft': 'html'})
+call dein#add('Chiel92/vim-autoformat')
+call dein#add('ap/vim-css-color')
+
+call dein#add('Shougo/Denite.nvim')
+"   call dein#add('Shougo/unite-outline')
+"   call dein#add('ujihisa/unite-colorscheme')
+"   call dein#add('junkblocker/unite-codesearch')
+" call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+call dein#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
+call dein#add('mhartington/nvim-typescript')
+" call dein#add('maralla/completor.vim')
+call dein#add('davidhalter/jedi-vim', {'on_ft': 'python3'})
+call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})
+
+call dein#add('Shougo/neco-vim', {'on_ft': 'vim'})
+" call dein#add('Shougo/neoinclude.vim')
+call dein#add('ujihisa/neco-look')
+"call dein#add('zchee/deoplete-jedi')
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('honza/vim-snippets')
+call dein#add('matthewsimo/angular-vim-snippets')
+" call dein#add('mhinz/vim-sayonara')
+"   Inclue only if we need any custom API call.
+"   call dein#add('mattn/webapi-vim')
+"   call dein#add('mattn/gist-vim')
+call dein#add('terryma/vim-multiple-cursors')
+"   call dein#add('rhysd/github-complete.vim')
+"   call dein#add('junegunn/goyo.vim')
+"   call dein#add('vim-scripts/SyntaxRange')
+call dein#add('zchee/deoplete-go', {'build': 'make'},{'on_ft': 'go'})
+call dein#add('rhysd/nyaovim-popup-tooltip')
+call dein#add('jacoborus/tender.vim')
+call dein#add('ryanoasis/vim-devicons')
+call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
+call dein#add('ryanoasis/vim-webdevicons')
+
+call dein#add('tpope/vim-fugitive')
+
+call dein#add('fatih/vim-go', { 'do': ':GoInstallBinaries' })
+
+call dein#add('ervandew/supertab')
+
+call dein#add('ctrlpvim/ctrlp.vim')
+
+call dein#add('tpope/vim-surround')
+
+call dein#add('scrooloose/nerdtree')
+
+" call dein#add('scrooloose/syntastic')
+
+"call dein#add('valloric/youcompleteme')
+
+call dein#add('plasticboy/vim-markdown')
+
+call dein#add('vim-airline/vim-airline')
+
+call dein#add('scrooloose/nerdcommenter')
+
+call dein#add('vim-airline/vim-airline-themes')
+
+call dein#add('KeitaNakamura/neodark.vim')
+
+call dein#add('majutsushi/tagbar')
+
+call dein#add('benmills/vimux')
+call dein#add('palantir/tslint')
+
+call dein#add('elzr/vim-json')
+
+"call dein#add('oinksoft/npm.vim'
+
+call dein#add('cakebaker/scss-syntax.vim')
+
+call dein#add('mileszs/ack.vim')
+
+call dein#add('ekalinin/dockerfile.vim')
+
+call dein#add('nsf/gocode')
+
+call dein#add('leafgarland/typescript-vim')
+
+call dein#add('skatzteyp/vim-ultisnips-angular2')
+
+call dein#add('xuyuanp/nerdtree-git-plugin')
+
+call dein#add('dkprice/vim-easygrep')
+
+call dein#add('tpope/vim-commentary')
+
+call dein#add('edkolev/tmuxline.vim')
+
+call dein#add('airblade/vim-gitgutter')
+
+call dein#add('othree/html5.vim')
+
+call dein#add('pangloss/vim-javascript')
+
+call dein#add('matze/vim-move')
+call dein#add('neomake/neomake', {'on_cmd': 'Neomake'})
+call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})
+call dein#add('carlitux/deoplete-ternjs')
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/vimfiler.vim')
+call dein#add('sbdchd/neoformat')
+call dein#add('mklabs/split-term.vim')
+" call dein#add('w0rp/ale')
+
+"call dein#add('thaerkh/vim-workspace'
+
+" plugin from http://vim-scripts.org/vim/scripts.html
+" call dein#add('L9'
+" Git plugin not hosted on GitHub
+" call dein#add('git://git.wincent.com/command-t.git')
+
+" git repos on your local machine (i.e. when working on your own plugin)
+" call dein#add('file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+" call dein#add('rstacruz/sparkup', {'rtp': 'vim/'}
+
+
+
+if dein#check_install()
+  call dein#install()
+endif
+call dein#end()
+
+set shell=sh
+
+"Neovim true color support
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+"Neovim cursor shape support
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+" Or if you have Neovim >= 0.1.5
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+" Theme
+" syntax enable
+"colorscheme OceanicNext
+
+"let g:airline_theme='oceanicnext'
+let g:airline_theme='papercolor'
+
+" Autoformat when saving the file
+au BufWrite * :Autoformat
+
+" Themes, Commands, etc  ----------------------------------------------------(
+syntax on
+ "colorscheme OceanicNext
+  colorscheme PaperColor
+let g:OceanicNext_italic = 1
+")
+"set background=dark
+
+
+" Use Ctrl S to save
+inoremap <C-s> <Esc>:w<CR>
+inoremap <C-s> <C-o>:w<CR>
+" :inoremap <c-s> <c-o>:Update<CR><CR>
+" noremap <C-S> :update<CR>
+vnoremap <C-S> <Esc>:w<CR>
+inoremap <C-S> <C-O>:w<CR>
+" vmap <C-s> <esc>:w<CR>gv
+:nnoremap <C-X> <Esc>:bwipeout<CR>
+:nnoremap <C-S-X> <Esc>:bwipeout! <CR>
+:nnoremap <C-Q> <Esc>:q<CR>
+:nnoremap <C-S-Q> <Esc>:q!<CR>
+
+let g:python_host_prog = '/usr/local/bin/python2'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
+let g:completor_python_binary = '/usr/local/bin/python3'
+let g:deoplete#enable_at_startup = 1
+" let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
+" let g:deoplete#sources#clang#clang_header = "/usr/lib/clang"
+" let g:deoplete#sources#clang#flags = [ "-std=c++14", "-fopenmp", "-fsyntax-only" ]
+let g:neopairs#enable = 1
+
+" " vim-airline ---------------------------------------------------------------(
+" let g:airline#extensions#tabline#enabled = 1
+" set hidden
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#show_tab_nr = 1
+" let g:airline_powerline_fonts = 1
+" let g:airline_theme='oceanicnext'
+" " )
+
+"vim-devicons"
+set encoding=utf-8
+"set listchars=tab:\\ ,trail:~,extends:>,precedes:<
+set lazyredraw
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:webdevicons_gui_glyph_fix = 1
+let g:webdevicons_enable = 1
+let g:WebDevIconsUnicodeDecorateFileNodes = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_unite = 0
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+let g:webdevicons_enable_ctrlp = 1
+
+"set guifont=Fira\ Code\ Medium\ for\ Powerline\ Plus\ Nerd\ File\ Types\ Medium\ 12
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
+let g:airline_powerline_fonts = 1
+
+"set guifont=DroidSansMonoPLNerd:h12
+
+" typescript-vim
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+autocmd FileType typescript :set makeprg=tsc
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+
+
+" vim-airline ---------------------------------------------------------------(
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#mike#enabled = 0
+set hidden
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#neomake#error_symbol='• '
+let g:airline#extensions#neomake#warning_symbol='•  '
+let g:airline_symbols.branch = ''
+let g:airline_theme='papercolor'
+"let g:airline_theme='oceanicnext'
+cnoreabbrev <silent> <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
+" tmap <leader>x <c-\><c-n>:bp! <BAR> bd! #<CR>
+nmap <leader>t :term<cr>
+" nmap <leader>, :bnext<CR>
+" tmap <leader>, <C-\><C-n>:bnext<cr>
+" nmap <leader>. :bprevious<CR>
+" tmap <leader>. <C-\><C-n>:bprevious<CR>
+tmap <leader>1  <C-\><C-n><Plug>AirlineSelectTab1
+tmap <leader>2  <C-\><C-n><Plug>AirlineSelectTab2
+tmap <leader>3  <C-\><C-n><Plug>AirlineSelectTab3
+tmap <leader>4  <C-\><C-n><Plug>AirlineSelectTab4
+tmap <leader>5  <C-\><C-n><Plug>AirlineSelectTab5
+tmap <leader>6  <C-\><C-n><Plug>AirlineSelectTab6
+tmap <leader>7  <C-\><C-n><Plug>AirlineSelectTab7
+tmap <leader>8  <C-\><C-n><Plug>AirlineSelectTab8
+tmap <leader>9  <C-\><C-n><Plug>AirlineSelectTab9
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+" let g:airline#extensions#tabline#buffer_idx_format = {
+"       \ '0': '0 ',
+"       \ '1': '1 ',
+"       \ '2': '2 ',
+"       \ '3': '3 ',
+"       \ '4': '4 ',
+"       \ '5': '5 ',
+"       \ '6': '6 ',
+"       \ '7': '7 ',
+"       \ '8': '8 ',
+"       \ '9': '9 ',
+"       \}
+
+")
+
+
+" Navigate between vim buffers and tmux panels ------------------------------(
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
+nnoremap <silent> <C-;> :TmuxNavigatePrevious<cr>
+")
+
+
+" Javascript ----------------------------------------------------------------(
+
+let g:neoformat_enabled_javascript = ['prettier']
+let g:neomake_javascript_enabled_makers = ['eslint']
+
+let g:jsx_ext_required = 1
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_input_description = 1
+let g:vim_json_syntax_conceal = 0
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
+
+" let g:nvim_typescript#signature_complete=1
+" let g:nvim_typescript#type_info_on_hold=1
+" let g:nvim_typescript#max_completion_detail=100
+"
+let g:neomake_typescript_tsc_maker = {
+      \ 'append_file': 0,
+      \ 'args': ['--project', getcwd() . '/tsconfig.json', '--noEmit'],
+      \ 'errorformat':
+      \   '%E%f %#(%l\,%c): error %m,' .
+      \   '%E%f %#(%l\,%c): %m,' .
+      \   '%Eerror %m,' .
+      \   '%C%\s%\+%m'
+      \}
+
+let g:neomake_typescript_enabled_makers = ['tsc']
+map <silent> <leader>gd :TSDoc <cr>
+map <silent> <leader>gt :TSType <cr>
+map <silent> <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
+" autocmd FileType typescript setl omnifunc=TSComplete
+let g:nvim_typescript#kind_symbols = {
+      \ 'keyword': 'keyword',
+      \ 'class': '',
+      \ 'interface': 'interface',
+      \ 'script': 'script',
+      \ 'module': '',
+      \ 'local class': 'local class',
+      \ 'type': 'type',
+      \ 'enum': '',
+      \ 'enum member': '',
+      \ 'alias': '',
+      \ 'type parameter': 'type param',
+      \ 'primitive type': 'primitive type',
+      \ 'var': '',
+      \ 'local var': '',
+      \ 'property': '',
+      \ 'let': '',
+      \ 'const': '',
+      \ 'label': 'label',
+      \ 'parameter': 'param',
+      \ 'index': 'index',
+      \ 'function': '',
+      \ 'local function': 'local function',
+      \ 'method': '',
+      \ 'getter': '',
+      \ 'setter': '',
+      \ 'call': 'call',
+      \ 'constructor': '',
+      \}
+" )
+
+" Linting -------------------------------------------------------------------(
+
+autocmd! BufWritePost * Neomake
+let g:neomake_warning_sign = {'text': '•'}
+let g:neomake_error_sign = {'text': '•'}
+
+")
+
+
+" Linting -------------------------------------------------------------------(
+" let g:syntastic_javascript_checkers = ['flow']
+" let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+" let g:syntastic_typescript_tsc_args = '--target ES5 --noEmit'
+" function! JscsFix()
+"   let l:winview = winsaveview()
+"   % ! jscs -x
+"   call winrestview(l:winview)
+" endfunction
+" command JscsFix :call JscsFix()
+" noremap <leader>j :JscsFix<CR>
+")
+
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/neosnippets, ~/.vim/bundle/angular-vim-snippets/snippets'
+
+" SuperTab like snippets behavior.
+" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)"
+" \: pumvisible() ? "\<C-n>" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)"
+" \: "\<TAB>"
+
+")
+
+" Typescript & Javscript omni complete --------------------------------------(
+" let g:vimjs#casesensistive = 1
+" let g:vimjs#smartcomplete = 1
+" " let g:tsuquyomi_disable_quickfix = 1
+" let g:vim_json_syntax_conceal = 0
+" autocmd FileType setlocal completeopt+=noselect,menu,preview
+" set completeopt+=noselect,menu,preview
+
+
+" if !exists('g:neocomplete#force_omni_input_patterns')
+"   let g:neocomplete#force_omni_input_patterns = {}
+" endif
+" let g:neocomplete#force_omni_input_patterns.typescript = '[^. *\t]\.\w*\|\h\w*::'
+
+")
+
+
+let g:workspace_session_name = 'Session.vim'
+
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
+
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" Always show current position
+set ruler
+
+" Always show current position
+set ruler
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" When searching try to be smart about cases
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
+set incsearch
+
+"faster redrawing
+set ttyfast
+
+"Always show the status in last line
+set laststatus=2
+
+" For regular expressions turn magic on
+set magic
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+set autowrite
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+"Backup settings"
+set nobackup
+set nowb
+set noswapfile
+set clipboard=unnamed
+
+"Text settings"
+set expandtab
+set smarttab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+set nowrap
+set textwidth=0
+
+syntax enable
+
+set background=light
+set t_Co=256
+
+let mapleader = ","
+
+
+set relativenumber
+set number
+
+"diable arrow
+" Get off my lawn - helpful when learning Vim :)
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+"Shortcuts
+nmap <F8> :TagbarToggle<CR>
+nmap <F7> :NERDTreeToggle<CR>
+
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprev<CR>
+
+"Move lines up and down
+let g:move_key_modifier = 'C'
+
+"NERDTree
+let g:NERDTreeWinSize=45
+set updatetime=100
+let g:NERDTreeDirArrows = 0
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeGlyphReadOnly = "RO"
+" nerd tree syntax highlighting
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+
+let g:WebDevIconsOS = 'Darwin'
+
+" Git -----------------------------------------------------------------------(
+
+set signcolumn=yes
+
+" )
+
+" " NERDTree ------------------------------------------------------------------(
+
+  let g:vimfiler_ignore_pattern = ""
+  " map <silent> - :VimFiler<CR>
+  let g:vimfiler_tree_leaf_icon = ''
+  let g:vimfiler_tree_opened_icon = ''
+  let g:vimfiler_tree_closed_icon = ''
+  let g:vimfiler_file_icon = ''
+  let g:vimfiler_marked_file_icon = '*'
+  let g:vimfiler_expand_jump_to_first_child = 0
+  let g:vimfiler_as_default_explorer = 1
+  call unite#custom#profile('default', 'context', {
+              \'direction': 'botright',
+              \ })
+  call vimfiler#custom#profile('default', 'context', {
+              \ 'explorer' : 1,
+              \ 'winwidth' : 35,
+              \ 'winminwidth' : 35,
+              \ 'toggle' : 1,
+              \ 'auto_expand': 0,
+              \ 'parent': 1,
+              \ 'explorer_columns': 'devicons:git',
+              \ 'status' : 0,
+              \ 'safe' : 0,
+              \ 'split' : 1,
+              \ 'hidden': 1,
+              \ 'no_quit' : 1,
+              \ 'force_hide' : 0,
+              \ })
+  augroup vfinit
+  autocmd FileType vimfiler call s:vimfilerinit()
+  augroup END
+  function! s:vimfilerinit()
+      set nonumber
+      set norelativenumber
+      nmap <silent><buffer><expr> <CR> vimfiler#smart_cursor_map(
+            \ "\<Plug>(vimfiler_expand_tree)",
+            \ "\<Plug>(vimfiler_edit_file)"
+            \)
+      nmap <silent> m :call NerdUnite()<cr>
+      nmap <silent> r <Plug>(vimfiler_redraw_screen)
+  endf
+  let g:vimfiler_ignore_pattern = '^\%(\.git\|\.DS_Store\)$'
+  let g:webdevicons_enable_vimfiler = 0
+  let g:vimfiler_no_default_key_mappings=1
+  function! NerdUnite() abort "(
+    let marked_files =  vimfiler#get_file(b:vimfiler)
+    call unite#start(['nerd'], {'file': marked_files})
+  endfunction ")
+
+  map <silent> - :NERDTreeToggle<CR>
+  augroup ntinit
+  autocmd FileType nerdtree call s:nerdtreeinit()
+  augroup END
+  function! s:nerdtreeinit()
+      nunmap <buffer> K
+      nunmap <buffer> J
+  endf
+  let NERDTreeShowHidden=1
+  let NERDTreeHijackNetrw=0
+  let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+  let g:NERDTreeWinSize=45
+  let g:NERDTreeAutoDeleteBuffer=1
+  let g:WebDevIconsOS = 'Darwin'
+  let NERDTreeMinimalUI=1
+  let NERDTreeCascadeSingleChildDir=1
+  let g:NERDTreeHeader = 'hello'
+
+
+ let g:webdevicons_conceal_nerdtree_brackets = 0
+   let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+   " 
+   let g:NERDTreeShowIgnoredStatus = 0
+    let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = 1
+    let g:NERDTreeDirArrows = 1
+   let g:NERDTreeDirArrowExpandable = ''
+   let g:NERDTreeDirArrowCollapsible = ''
+   let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
+" ")
+
+" Vim-Devicons -------------------------------------------------------------(
+
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
+
+" )
+
+" Code formatting -----------------------------------------------------------(
+
+" ,f to format code, requires formatters: read the docs
+noremap <silent> <leader>f :Neoformat<CR>
+
+" )
+
+"By default Vim shows 8 spaces for a single tab. However it's up to us how to represent in Vim.
+"The following will change it to show a single tab as 4 spaces:
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+"vimscript
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#cmd#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+"golang
+let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
+"let g:go_fmt_fail_silently = 1
+"let g:go_snippet_case_type = "camelcase"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_deadline = "5s"
+"let g:go_def_mode = 'godef'
+let g:go_def_mode = 'guru'
+"let g:go_decls_includes = "func,type"
+let g:go_decls_includes = "func"
+let g:go_auto_type_info = 1
+" let g:go_auto_sameids = 1
+let g:go_textobj_include_function_doc = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+set updatetime=100
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+"autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+
+"map <C-n> :cnext<CR>
+"map <C-m> :cprevious<CR>
+map <C-n> :cn<CR>
+map <C-m> :cp<CR>
+nnoremap <leader>a :cclose<CR>
+
+set clipboard=unnamed
+
+"if has("gui_running")
+"	":Guifont Droid\ Sans\ Mono\ for\ Powerline:h9
+  set guifont DejaVu Sans Mono for Powerline:h9
+"endif
+
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
