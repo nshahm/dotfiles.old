@@ -91,6 +91,8 @@ fi
 ln -s ~/.vimrc ~/.config/nvim/init.vim
 ln -s ~/.vimrc ~/.nvimrc
 
+MYNVIMRC=~/.vimrc
+
 if [ -e "~/.vim" ]; then
   rm -f ~/.vim
   ln -s ~/.vim ~/.nvim
