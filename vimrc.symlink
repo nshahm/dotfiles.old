@@ -56,6 +56,7 @@ call dein#add('easymotion/vim-easymotion')
 call dein#add('myusuf3/numbers.vim')
 call dein#add('mhinz/vim-startify')
 call dein#add('Xuyuanp/nerdtree-git-plugin')
+call dein#add('NLKNguyen/papercolor-theme')
 
 " dein.vim
 call dein#add('zchee/deoplete-go', {'build': 'make'})
@@ -287,6 +288,19 @@ function! s:create_go_doc_comment()
   execute ":norm I// \<Esc>$"
 endfunction
 nnoremap <leader>ui :<C-u>call <SID>create_go_doc_comment()<CR>
+
+function! s:switch_light_scheme()
+  execute ":set background=light"
+  execute ":colorscheme PaperColor"
+endfunction
+nnoremap <F8> :<C-u>call <SID>switch_light_scheme()<CR>
+
+function! s:switch_dark_scheme()
+  execute ":set background=dark"
+  execute ":colorscheme hybrid_material"
+endfunction
+nnoremap <F9> :<C-u>call <SID>switch_dark_scheme()<CR>
+
 
 "
 "===================== PLUGINS ======================
@@ -525,7 +539,7 @@ map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}
-nmap h <Plug>(easymotion-overwin-f2)
+nmap <leader>h <Plug>(easymotion-overwin-f2)
 
 " Move to line
 map <Leader>g <Plug>(easymotion-bd-jk)
