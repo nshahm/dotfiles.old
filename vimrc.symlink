@@ -205,6 +205,7 @@ nnoremap <leader>pr :Runtime<CR>
 
 " Close all but the current one
 nnoremap <leader>o :only<CR>
+"nnoremap <leader>x :bwipeout<CR>
 
 " Better split switching
 map <C-j> <C-W>j
@@ -301,6 +302,11 @@ function! s:switch_dark_scheme()
 endfunction
 nnoremap <F9> :<C-u>call <SID>switch_dark_scheme()<CR>
 
+function! s:close_buffer()
+  execute ":bp!"
+  execute ":bwipeout!#"
+endfunction
+nnoremap <C-x> :<C-u>call <SID>close_buffer()<CR>
 
 "
 "===================== PLUGINS ======================
@@ -382,7 +388,7 @@ augroup go
   autocmd FileType go nmap <silent> <leader>r  <Plug>(go-run)
   autocmd FileType go nmap <silent> <leader>e  <Plug>(go-install)
 
-  " autocmd FileType go nmap <silent> <Leader>c <Plug>(go-coverage-toggle)
+  autocmd FileType go nmap <silent> <Leader>c <Plug>(go-coverage-toggle)
 
   " I like these more!
   autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
@@ -464,8 +470,6 @@ endif
 au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
 
-
-
 " ==================== Various other plugin settings ====================
 nmap  -  <Plug>(choosewin)
 
@@ -506,10 +510,10 @@ if !has('gui_running')
   set t_Co=256
 endif
 
-"webdevicons图标
-" if exists("g:loaded_webdevicons")
-"     call webdevicons#refresh()
-" endif
+" webdevicons图标
+if exists("g:loaded_webdevicons")
+    call webdevicons#refresh()
+endif
 
 let g:airline_powerline_fonts = 1
 let g:webdevicons_enable = 1
@@ -554,18 +558,18 @@ nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
 
 "git gitter
-" let g:NERDTreeIndicatorMapCustom = {
-"     \ "Modified"  : "✹",
-"     \ "Staged"    : "✚",
-"     \ "Untracked" : "✭",
-"     \ "Renamed"   : "➜",
-"     \ "Unmerged"  : "═",
-"     \ "Deleted"   : "✖",
-"     \ "Dirty"     : "✗",
-"     \ "Clean"     : "✔︎",
-"     \ 'Ignored'   : '☒',
-"     \ "Unknown"   : "?"
-"     \ }
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 
 let g:gitgutter_enabled = 1
 let g:gitgutter_async = 1
@@ -579,15 +583,6 @@ set tabstop=4 softtabstop=4 shiftwidth=4
 
 " display indentation guides
 set list listchars=tab:\❘\ ,trail:·,extends:»,precedes:«,nbsp:×
-
-" convert spaces to tabs when reading file
-autocmd! bufreadpost * set noexpandtab | retab! 4
-
-" convert tabs to spaces before writing file
-autocmd! bufwritepre * set expandtab | retab! 4
-
-" convert spaces to tabs after writing file (to show guides again)
-autocmd! bufwritepost * set noexpandtab | retab! 4
 
 " vim-airline ---------------------------------------------------------------(
 
@@ -604,14 +599,8 @@ let g:airline#extensions#neomake#error_symbol='• '
 let g:airline#extensions#neomake#warning_symbol='•  '
 let g:airline_symbols.branch = ''
 let g:airline_theme='wombat'
-"let g:airline_theme='oceanicnext'
 cnoreabbrev <silent> <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
-" tmap <leader>x <c-\><c-n>:bp! <BAR> bd! #<CR>
 nmap <leader>t :term<cr>
-" nmap <leader>, :bnext<CR>
-" tmap <leader>, <C-\><C-n>:bnext<cr>
-" nmap <leader>. :bprevious<CR>
-" tmap <leader>. <C-\><C-n>:bprevious<CR>
 tmap <leader>1  <C-\><C-n><Plug>AirlineSelectTab1
 tmap <leader>2  <C-\><C-n><Plug>AirlineSelectTab2
 tmap <leader>3  <C-\><C-n><Plug>AirlineSelectTab3
