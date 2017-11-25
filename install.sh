@@ -71,7 +71,6 @@ export NVM_DIR="$HOME/.nvm"
 echo -d "\n\n Installing node global packages"
 sudo sh ./packages/node.sh
 
-
 # Install neovim plugins
 echo "Installing dein (Plugin Manager for neovim)"
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > downloaded_installer.sh
@@ -113,15 +112,6 @@ if [ ! -e ~/.zplug ]; then
 else
   echo "~/.zplug already exists... Skipping."
 fi
-
-#Adding Fonts to nvim devicons
-echo "Adding DroidSansMono font for webdev icons.."
-curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20for%20Powerline%20Nerd%20Font%20Complete.otf
-
-cp ./Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete.otf ~/Library/Fonts
-
-echo "vim/bundle/youcompleteme/install.py --gocode-completer --tern-completer"
-#~/.vim/bundle/youcompleteme/install.py --gocode-completer --tern-completer
 
 # Call +UpdateRemotePlugins
 nvim +UpdateRemotePlugins
