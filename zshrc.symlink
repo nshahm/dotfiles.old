@@ -75,11 +75,14 @@ if zplug check zsh-users/zsh-history-substring-search; then
   bindkey "$terminfo[cud1]" history-substring-search-down
 fi
 
-export GOPATH=$HOME/sandbox/projects/go
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/go/bin:/usr/local/opt/go/libexec/bin:$GOPATH/bin:$HOME/.cargo/bin"
-
 # Setting up nvm PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# load system
+for DOTFILE in ~/.dotfiles/system/.{alias,env,function,path,prompt};
+do
+  [ -f "$DOTFILE" ] && . "$DOTFILE"
+done

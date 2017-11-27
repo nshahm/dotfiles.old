@@ -36,13 +36,6 @@ else
   echo "Tmux plugin manager already installed"
 fi
 
-# load system
-for DOTFILE in "$DOTFILES_DIR"/system/.{alias,env,function,path,prompt};
-do
-  echo $DOTFILE
-  [ -f "$DOTFILE" ] && . "$DOTFILE"
-done
-
 #sym link
 echo -e "\nCreating symlinks"
 echo "=============================="
