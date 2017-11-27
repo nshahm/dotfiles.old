@@ -1,1 +1,1 @@
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/go/bin:/usr/local/opt/go/libexec/bin:$HOME/.dotfiles/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/go/bin:/usr/local/opt/go/libexec/bin:$GOPATH/bin:$HOME/.cargo/bin"

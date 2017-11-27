@@ -1,2 +1,4 @@
 export SHELL=$(which zsh)
 exec $SHELL -l
+
+export PATH="$HOME/.cargo/bin:$PATH"
